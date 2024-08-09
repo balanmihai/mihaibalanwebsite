@@ -96,7 +96,7 @@ export default function About() {
               Consider buying me a coffee to support my work!
             </p>
             <div className="mt-8">
-              <a href={''}>
+              <a target='_blank' href='https://buymeacoffee.com/mihaibalanj'>
                 <img className="mx-auto h-14" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
                      alt="Buy Me a Coffee"/>
               </a>

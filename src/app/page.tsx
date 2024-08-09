@@ -1,7 +1,5 @@
-import Image, { type ImageProps } from 'next/image'
+import { type ImageProps } from 'next/image'
 import Link from 'next/link'
-import clsx from 'clsx'
-import Script from 'next/script'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
@@ -9,13 +7,13 @@ import {
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
-  XIcon,
 } from '@/components/SocialIcons'
 import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
+import TypingAnimation from "@/components/TypingAnimation";
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -152,8 +150,7 @@ function Role({ role }: { role: Role }) {
 
   return (
     <li className="flex gap-4">
-      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+      <div className="relative mt-1 bg-teal-400 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-teal-400 dark:ring-0">
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
@@ -234,55 +231,40 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Software developer, UI/UX designer, and Rock climber.
+            Hi! I’m Mihai Balan
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Mihai, a software developer with high proficiency in UI/UX Design from Romania with a work experience of over 3 years on several web and native projects.
-          </p>
+          <TypingAnimation/>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="https://www.instagram.com/bala.url/"
-              aria-label="Follow on Instagram"
-              target="_blank"
-              icon={InstagramIcon}
+                href="https://www.instagram.com/bala.url/"
+                aria-label="Follow on Instagram"
+                target="_blank"
+                icon={InstagramIcon}
             />
             <SocialLink
-              href="https://github.com/balanmihai"
-              aria-label="Follow on GitHub"
-              target="_blank"
-              icon={GitHubIcon}
+                href="https://github.com/balanmihai"
+                aria-label="Follow on GitHub"
+                target="_blank"
+                icon={GitHubIcon}
             />
             <SocialLink
-              href="https://www.linkedin.com/in/mihai-balan-07665a155/"
-              target="_blank"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
+                href="https://www.linkedin.com/in/mihai-balan-07665a155/"
+                target="_blank"
+                aria-label="Follow on LinkedIn"
+                icon={LinkedInIcon}
             />
           </div>
         </div>
       </Container>
       <Container className="mt-16 md:mt-16">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-16">
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Resume/>
-            <Script
-                data-name="BMC-Widget"
-                data-cfasync="false"
-                src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-                data-id="mihaibalanJ"
-                data-description="Support me on Buy me a coffee!"
-                data-message="be part of my adventures!"
-                data-color="#40DCA5"
-                data-position="Right"
-                data-x_margin="18"
-                data-y_margin="18"
-                strategy="afterInteractive"
-            />
             <Newsletter/>
           </div>
         </div>

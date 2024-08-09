@@ -59,7 +59,7 @@ Card.Title = function CardTitle<T extends React.ElementType = 'h2'>({
   let Component = as ?? 'h2'
 
   return (
-    <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+    <Component className="text-md font-semibold text-zinc-800 dark:text-zinc-100">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
@@ -77,10 +77,26 @@ Card.Description = function CardDescription({
   )
 }
 
-Card.Cta = function CardCta({ children }: { children: React.ReactNode }) {
+Card.Technologies = function CardTechnologies({
+                                              children,
+                                            }: {
+  children: React.ReactNode
+}) {
   return (
-    <div
-      aria-hidden="true"
+
+      <>
+        <p className="relative z-10 mt-2 text-sm text-zinc-900 dark:text-zinc-900 font-semibold">Tech Stack:</p>
+        <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+          {children}
+        </p>
+      </>
+  )
+}
+
+Card.Cta = function CardCta({children}: { children: React.ReactNode }) {
+  return (
+      <div
+          aria-hidden="true"
       className="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
     >
       {children}

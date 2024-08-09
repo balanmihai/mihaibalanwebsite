@@ -5,36 +5,31 @@ import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoAnimaginary from '@/images/logos/animaginary.svg'
 import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 
 const projects = [
   {
     name: 'Cracklez',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'https://www.cracklez.work/', label: 'planetaria.tech' },
+      `Curatorial project and display of Cracklez's artworks over time. `,
+    technologies: 'NextJS, Strapi Headless CMS, SCSS, Vercel',
+    link: { href: 'https://www.cracklez.work/', label: 'cracklez.work' },
     logo: logoPlanetaria,
   },
   {
     name: 'Bloom Event',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: 'https://bloomevnt.com/', label: 'github.com' },
+      'This project aims to support and promote women in the music industry through diverse and accessible means to anyone who wants to work in this field, no matter what job they dream of.',
+    link: { href: 'https://bloomevnt.com/', label: 'bloomevnt.com' },
+    technologies: 'NextJS, Directus Headless CMS, NodeJS,SCSS, Vercel',
     logo: logoAnimaginary,
-  },
-  {
-    name: 'Andrei Cosmin Bala',
-    description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
   },
   {
     name: 'Andrei Albu',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
+      'Personal portfolio website for Graphic Designer Andrei Albu. This website aims to focus on server side rendered content and the ease of generating content by inserting data into the database.',
+    link: { href: 'https://www.andreialbu.work/', label: 'andreialbu.work/' },
+    technologies: 'NextJS, Strapi Headless CMS, SCSS, Vercel',
     logo: logoCosmos,
   }
 ]
@@ -79,6 +74,7 @@ export default function Projects() {
               <Card.Link href={project.link.href}>{project.name}</Card.Link>
             </h2>
             <Card.Description>{project.description}</Card.Description>
+            <Card.Technologies>{project.technologies}</Card.Technologies>
             <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
               <LinkIcon className="h-6 w-6 flex-none" />
               <span className="ml-2">{project.link.label}</span>

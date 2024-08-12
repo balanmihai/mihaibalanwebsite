@@ -1,4 +1,4 @@
-import { type ImageProps } from 'next/image'
+import Image, { type ImageProps } from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -8,12 +8,12 @@ import {
   InstagramIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import logoEsolutions from '@/images/logos/esolutions.jpeg'
+import logoCTO from '@/images/logos/cto-tech.jpg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 import TypingAnimation from "@/components/TypingAnimation";
+import React from "react";
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -134,7 +134,7 @@ function Newsletter() {
 interface Role {
   company: string
   title: string
-  logo: ImageProps['src']
+  logo?: ImageProps['src']
   start: string | { label: string; dateTime: string }
   end: string | { label: string; dateTime: string }
 }
@@ -149,29 +149,34 @@ function Role({ role }: { role: Role }) {
   let endDate = typeof role.end === 'string' ? role.end : role.end.dateTime
 
   return (
-    <li className="flex gap-4">
-      <div className="relative mt-1 bg-teal-400 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-teal-400 dark:ring-0">
-      </div>
-      <dl className="flex flex-auto flex-wrap gap-x-2">
-        <dt className="sr-only">Company</dt>
-        <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          {role.company}
-        </dd>
-        <dt className="sr-only">Role</dt>
-        <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-          {role.title}
-        </dd>
-        <dt className="sr-only">Date</dt>
-        <dd
-          className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-          aria-label={`${startLabel} until ${endLabel}`}
-        >
-          <time dateTime={startDate}>{startLabel}</time>{' '}
-          <span aria-hidden="true">—</span>{' '}
-          <time dateTime={endDate}>{endLabel}</time>
-        </dd>
-      </dl>
-    </li>
+      <li className="flex gap-4">
+        <div
+            className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+          {
+            role.logo ? <Image src={role.logo} alt="" className="rounded-full h-7 w-7" unoptimized/> : <h1>F</h1>
+          }
+        </div>
+        <dl className="flex flex-auto flex-wrap gap-x-2">
+          <dt className="sr-only">Company</dt>
+          <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+            {role.company}
+          </dd>
+          <dt className="sr-only">Role</dt>
+          <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+            {role.title}
+          </dd>
+          <dt className="sr-only">Date</dt>
+          <dd
+              className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+              aria-label={`${startLabel} until ${endLabel}`}
+          >
+            <time dateTime={startDate}>{startLabel}</time>
+            {' '}
+            <span aria-hidden="true">—</span>{' '}
+            <time dateTime={endDate}>{endLabel}</time>
+          </dd>
+        </dl>
+      </li>
   )
 }
 
@@ -180,7 +185,7 @@ function Resume() {
     {
       company: 'eSolutions Tech',
       title: 'Developer & UI/UX Designer',
-      logo: logoPlanetaria,
+      logo: logoEsolutions,
       start: '2021',
       end: {
         label: 'Present',
@@ -190,14 +195,13 @@ function Resume() {
     {
       company: 'CTO Tech',
       title: 'UI/UX Designer',
-      logo: logoAirbnb,
+      logo: logoCTO,
       start: 'Jan 2021',
       end: 'June 2021',
     },
     {
       company: 'Freelance',
       title: 'Developer & UI/UX Designer',
-      logo: logoFacebook,
       start: '2020',
       end: 'Present',
     },
@@ -265,7 +269,7 @@ export default async function Home() {
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Resume/>
-            <Newsletter/>
+            {/*<Newsletter/>*/}
           </div>
         </div>
       </Container>

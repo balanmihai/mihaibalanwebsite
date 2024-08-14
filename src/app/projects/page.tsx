@@ -24,8 +24,14 @@ const projects = [
     name: 'Andrei Albu',
     description:
       'Personal portfolio website for Graphic Designer Andrei Albu. This website aims to focus on server side rendered content and the ease of generating content by inserting data into the database.',
-    link: { href: 'https://www.andreialbu.work/', label: 'andreialbu.work/' },
+    link: { href: 'https://www.andreialbu.work/', label: 'andreialbu.work' },
     technologies: 'NextJS, Strapi Headless CMS, SCSS, Vercel',
+  },
+  {
+    name: 'Cosmin Andrei Bala',
+    description: 'Portfolio - typography, animations and graphic designer Cosmin Andrei Bala',
+    link:{ href: 'https://bacosmin.com/', label: 'bacosmin.com'},
+    technologies: 'NextJS, Directus, SCSS, Vercel'
   }
 ]
 

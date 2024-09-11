@@ -1,16 +1,24 @@
 import { type Metadata } from 'next'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import React from "react";
+import React from 'react'
 
 const projects = [
   {
     name: 'Cracklez',
-    description:
-      `Curatorial project and display of Cracklez's artworks over time. `,
+    description: `Curatorial project and display of Cracklez's artworks over time. `,
     technologies: 'NextJS, Strapi Headless CMS, SCSS, Vercel',
     link: { href: 'https://www.cracklez.work/', label: 'cracklez.work' },
-
+  },
+  {
+    name: 'Romania Online',
+    description:
+      'Online Radio for the community of Romanian citizens in United Kingdom. This website is an extension of a cross-platform mobile application',
+    link: {
+      href: 'https://www.romaniaonline.net/',
+      label: 'romaniaonline.net',
+    },
+    technologies: 'NextJS, Sanity, NodeJS, Tailwind, Vercel',
   },
   {
     name: 'Bloom Event',
@@ -18,7 +26,6 @@ const projects = [
       'This project aims to support and promote women in the music industry through diverse and accessible means to anyone who wants to work in this field, no matter what job they dream of.',
     link: { href: 'https://bloomevnt.com/', label: 'bloomevnt.com' },
     technologies: 'NextJS, Directus Headless CMS, NodeJS,SCSS, Vercel',
-
   },
   {
     name: 'Andrei Albu',
@@ -29,10 +36,11 @@ const projects = [
   },
   {
     name: 'Cosmin Andrei Bala',
-    description: 'Portfolio - typography, animations and graphic designer Cosmin Andrei Bala',
-    link:{ href: 'https://bacosmin.com/', label: 'bacosmin.com'},
-    technologies: 'NextJS, Directus, SCSS, Vercel'
-  }
+    description:
+      'Portfolio - typography, animations and graphic designer Cosmin Andrei Bala',
+    link: { href: 'https://bacosmin.com/', label: 'bacosmin.com' },
+    technologies: 'NextJS, Directus, SCSS, Vercel',
+  },
 ]
 
 function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -62,23 +70,20 @@ export default function Projects() {
         className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
       >
         {projects.map((project) => (
-            <Card as="li" key={project.name}>
-              <div
-                  className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                {
-               <h1>{project.name.substring(0,1)}</h1>
-                }
-              </div>
-              <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                <Card.Link href={project.link.href}>{project.name}</Card.Link>
-              </h2>
-              <Card.Description>{project.description}</Card.Description>
-              <Card.Technologies>{project.technologies}</Card.Technologies>
-              <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-                <LinkIcon target='_blank' className="h-6 w-6 flex-none"/>
-                <span className="ml-2">{project.link.label}</span>
-              </p>
-            </Card>
+          <Card as="li" key={project.name}>
+            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+              {<h1>{project.name.substring(0, 1)}</h1>}
+            </div>
+            <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+              <Card.Link href={project.link.href}>{project.name}</Card.Link>
+            </h2>
+            <Card.Description>{project.description}</Card.Description>
+            <Card.Technologies>{project.technologies}</Card.Technologies>
+            <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+              <LinkIcon target="_blank" className="h-6 w-6 flex-none" />
+              <span className="ml-2">{project.link.label}</span>
+            </p>
+          </Card>
         ))}
       </ul>
     </SimpleLayout>

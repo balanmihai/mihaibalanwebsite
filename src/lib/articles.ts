@@ -5,6 +5,7 @@ interface Article {
   description: string
   author: string
   date: string
+  body: any
   image?: string
 }
 

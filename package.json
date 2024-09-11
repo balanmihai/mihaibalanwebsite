@@ -17,7 +17,7 @@
     "@next/mdx": "^14.0.4",
     "@sanity/icons": "^3.3.1",
     "@sanity/image-url": "^1.0.2",
-    "@sanity/vision": "^3.53.0",
+    "@sanity/vision": "^3.54.0",
     "@tailwindcss/typography": "^0.5.4",
     "@types/node": "^20.10.8",
     "@types/react": "^18.2.47",
@@ -35,7 +35,7 @@
     "react-dom": "^18.2.0",
     "react-type-animation": "^3.2.0",
     "remark-gfm": "^4.0.0",
-    "sanity": "^3.53.0",
+    "sanity": "^3.54.0",
     "styled-components": "^6.1.12",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
